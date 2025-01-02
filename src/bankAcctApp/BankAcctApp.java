@@ -1,4 +1,4 @@
-/* Phase III */
+/* Phase IV */
 
 package bankAcctApp;
 
@@ -10,6 +10,7 @@ public class BankAcctApp {
         
     	ArrayList<Customer> customers = new ArrayList<>();
         ArrayList<Account> accounts = new ArrayList<>();
+        new BankAcctAppGUI(customers, accounts);
         boolean moreCustomers = true;
 
         // Add customers and accounts

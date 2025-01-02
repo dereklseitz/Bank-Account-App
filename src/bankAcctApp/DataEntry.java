@@ -1,4 +1,4 @@
-/* Phase III */
+/* Phase IV */
 
 package bankAcctApp;
 
@@ -73,7 +73,7 @@ public class DataEntry {
     	return input;
     }
     
-// Static method to validate decimals.
+// Static method to validate decimals (specific to the CLI)
     public static double inputDecimal(String prompt) {
         boolean isValid = false;
         double decimalValue = 0.0;
@@ -91,7 +91,7 @@ public class DataEntry {
         return decimalValue;
     }
    
-// Static method to validate decimals are within a range.    
+// Static method to validate decimals are within a range (specific to the CLI)    
     public static double inputDecimalInRange(String prompt, double min, double max) {
         double value;
         do {
@@ -104,6 +104,7 @@ public class DataEntry {
         } while (value < min || value > max);
         return value;
     }
+    
     
 // Static method to validate a date in MM/DD/YYYY format.
     public static String inputDate(String prompt) {
@@ -120,5 +121,92 @@ public class DataEntry {
     		}
     	}
     	return date;
+    }
+
+
+// Validation methods specific to the GUI
+    // Reusable patterns for string v   // Reusable patterns for string validation (no prompt messages, just validation)
+    private static final Pattern patternID = Pattern.compile("[A-Z0-9]{5}");
+    private static final Pattern patternSSN = Pattern.compile("[0-9]{9}");
+    private static final Pattern patternName = Pattern.compile("[A-Za-z\\s,\\.\\-']{1,20}");
+    private static final Pattern patternStreet = Pattern.compile("[0-9]+[A-Za-z\\s,\\.\\-]{1,19}");
+    private static final Pattern patternCity = Pattern.compile("[A-Za-z\\s]{1,20}");
+    private static final Pattern patternState = Pattern.compile("[A-Z]{2}");
+    private static final Pattern patternZip = Pattern.compile("[0-9]{5}");
+    private static final Pattern patternPhone = Pattern.compile("[0-9]{10}");
+
+    // Validate input for strings using regex (for GUI)
+    private static void validateInput(Pattern pattern, String input) {
+        if (!pattern.matcher(input).matches()) {
+            throw new IllegalArgumentException("Invalid input: " + input);
+        }
+    }
+
+    // Validate and convert string input to double
+    private static double validateAndConvertToDouble(String input) {
+        try {
+            return Double.parseDouble(input); // Convert to double
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException("Invalid decimal input: " + input);
+        }
+    }
+
+    // Validate and convert decimal numbers for account information within a range (for GUI)
+    public static double inputDecimalInRangeGUI(String input, double min, double max) {
+        double value = validateAndConvertToDouble(input);  // Validate as double
+        if (value < min || value > max) {
+            throw new IllegalArgumentException("Value out of range: " + value);
+        }
+        return value;
+    }
+
+    // Validate decimal input (no range validation)
+    public static double inputDecimalGUI(String input) {
+        return validateAndConvertToDouble(input); // Simply convert the valid decimal input
+    }
+
+    // Field-specific validation methods for GUI
+
+    public static void inputIDGUI(String id) {
+        validateInput(patternID, id); // Validate ID format
+    }
+
+    public static void inputSSNGUI(String ssn) {
+        validateInput(patternSSN, ssn); // Validate SSN format
+    }
+
+    public static void inputLastNameGUI(String lastName) {
+        validateInput(patternName, lastName); // Validate last name format
+    }
+
+    public static void inputFirstNameGUI(String firstName) {
+        validateInput(patternName, firstName); // Validate first name format
+    }
+
+    public static void inputStreetGUI(String street) {
+        validateInput(patternStreet, street); // Validate street format
+    }
+
+    public static void inputCityGUI(String city) {
+        validateInput(patternCity, city); // Validate city format
+    }
+
+    public static void inputStateGUI(String state) {
+        validateInput(patternState, state); // Validate state format
+    }
+
+    public static void inputZipGUI(String zip) {
+        validateInput(patternZip, zip); // Validate zip format
+    }
+
+    public static void inputPhoneGUI(String phone) {
+        validateInput(patternPhone, phone); // Validate phone format
+    }
+
+    // For numeric string validation (e.g., for account number)
+    public static void inputNumericStringGUI(String input, int length) {
+        if (input.length() != length || !input.matches("[0-9]+")) {
+            throw new IllegalArgumentException("Invalid numeric input. Must be " + length + " digits.");
+        }
     }
 }

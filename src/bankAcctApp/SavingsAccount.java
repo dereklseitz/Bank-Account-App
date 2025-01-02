@@ -1,8 +1,8 @@
-/* Phase III */
+/* Phase IV */
 
 package bankAcctApp;
 
-// Class representing savings accounts
+//Class representing savings accounts
 public class SavingsAccount extends Account {
 
     // Overridden method for withdrawals in savings accounts
@@ -14,13 +14,13 @@ public class SavingsAccount extends Account {
             throw new IllegalArgumentException("Insufficient funds for withdrawal. Savings accounts cannot overdraft.");
         }
     }
-
+   
     // Overridden method for deposits in savings accounts
     @Override
     public void deposit(double amount) {
         setBalance(getBalance() + amount - getSvcFee()); // Add amount and deduct service fee
     }
-
+   
     // Overridden method for applying accrued interest in savings accounts
     @Override
     public double applyAccruedInterest(String transactionDate) {
@@ -32,10 +32,10 @@ public class SavingsAccount extends Account {
         logTransaction(transactionDate, "INT", interest); // Log the interest transaction
         return interest;
     }
-
+   
     // Implementation of balance() method from AccountInterface
     @Override
     public double balance() {
         return getBalance(); // Return the current balance
     }
-}
+   }   

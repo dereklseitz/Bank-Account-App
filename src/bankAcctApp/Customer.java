@@ -1,4 +1,4 @@
-/* Phase III */
+/* Phase IV */
 
 package bankAcctApp;
 
@@ -108,4 +108,7 @@ public class Customer {
         	id, lastName, firstName, ssn, phone, street, city, state, zip
     	);
 	}
+public Object getAccountNumber() {
+	return null;
+}
 }
