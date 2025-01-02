@@ -1,4 +1,4 @@
-/* Phase II */
+/* Phase III */
 
 package bankAcctApp;
 
@@ -110,16 +110,15 @@ public class DataEntry {
     	Pattern patternDate = Pattern.compile("^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\\d{4})$");
     	String date = "";
     	System.out.print(prompt);
-    	do {
+    	while (date.isEmpty()) {
     		String input = in.nextLine();
     		if (patternDate.matcher(input).matches()) {
-    			return input;
+    			date = input;
+    			return date;
     		} else {
     			System.out.print("Invalid date. Please try again: ");
-    			in.next();
-      		}
-    		in.nextLine();
-    	} while (date.isEmpty());
+    		}
+    	}
     	return date;
     }
 }

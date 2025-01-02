@@ -1,4 +1,4 @@
-/* Phase II */
+/* Phase III */
 
 package bankAcctApp;
 
@@ -101,7 +101,6 @@ public class Customer {
 @Override
 	public String toString() {
     	return String.format(
-    		"Customer Information:\n" +
         		"---------------------\n" +
         	"ID:     Last Name:             First Name:       SSN:        Phone:      Street:                City:             ST:    ZIP:     \n" +
         	"---     ----------             -----------       ----        ------      -------                -----             ---    ----    \n" +
