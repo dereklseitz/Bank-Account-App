@@ -1,3 +1,5 @@
+/* Phase II */
+
 package bankAcctApp;
 
 import java.util.Scanner;
@@ -18,11 +20,11 @@ public class DataEntry {
         do {
             System.out.print(prompt);
             input = in.nextLine();
-            if (input == "" || input.length() > maxLength) {
+            if (input.isBlank() || input.length() > maxLength) {
                 System.out.println("Invalid input. Must be non-blank and up to " 
                 		+ maxLength + " characters.");
             }
-        } while (input == "" || input.length() > maxLength);
+        } while (input.isBlank() || input.length() > maxLength);
         return input;
     }
 
@@ -32,10 +34,10 @@ public class DataEntry {
         do {
             System.out.print(prompt);
             input = in.nextLine();
-            if (!input.matches("\\d+")) {
-                System.out.println("Invalid input. Must only be numeric characters.");
+            if (!input.matches("\\d{" + length + "}")) {
+                System.out.println("Invalid input. Must be exactly " + length + " numbers.");
             }
-        } while (!input.matches("\\d+"));
+        } while (!input.matches("\\d{" + length + "}"));
         return input;
     }
 
@@ -50,20 +52,23 @@ public class DataEntry {
     			isValid = true;
     		} else {
     			System.out.print("Invalid entry. Try again: ");
-    			in.nextLine();
+    			in.next();
     		}
+    		in.nextLine();
     	} while (!isValid);
     	return input;	
     }
     
-// Static method to validate Integers within a range.
+// Static method to validate Integers are within a range.
     public static int inputIntegerInRange(String prompt, int min, int max) {
     	int input = (min - 1);
     	do {
     		input = inputInteger(prompt);
     		if (input < min || input > max) {
     			System.out.print("Invalid input. Try again: ");
+    			in.next();
     		} 
+    		in.nextLine();
     	} while (input < min || input > max);
     	return input;
     }
@@ -81,11 +86,12 @@ public class DataEntry {
                 System.out.println("Invalid input. Please enter a valid decimal number.");
                 in.next();
             }
+        	in.nextLine();
         } while (!isValid);
         return decimalValue;
     }
    
-// Static method to validate decimals within a range.    
+// Static method to validate decimals are within a range.    
     public static double inputDecimalInRange(String prompt, double min, double max) {
         double value;
         do {
@@ -93,6 +99,7 @@ public class DataEntry {
             if (value < min || value > max) {
                 System.out.println("Invalid input. Must be between " 
                 		+ min + " and " + max + ".");
+                in.next();
             }
         } while (value < min || value > max);
         return value;
@@ -109,8 +116,10 @@ public class DataEntry {
     			return input;
     		} else {
     			System.out.print("Invalid date. Please try again: ");
+    			in.next();
       		}
-    	} while (date == "");
+    		in.nextLine();
+    	} while (date.isEmpty());
     	return date;
     }
 }
