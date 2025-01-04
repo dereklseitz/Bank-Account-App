@@ -7,7 +7,7 @@
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Scenario:](#scenario)
-  -  [Phase I: Creating the Initiial Classes](#phase-i-creating-the-initial-classes)
+  -  [Phase I: Creating the Initial Classes](#phase-i-creating-the-initial-classes)
   -  [Phase II: Adding an Abstract Superclass & Input Data Validation](#phase-ii-adding-an-abstract-superclass--input-data-validation)
   -  [Phase III: Adding & Implementing Subclasses](#phase-iii-adding--implementing-subclasses)
   -  [Phase IV: Creating the Application GUI](#phase-iv-creating-the-application-gui)
@@ -50,6 +50,8 @@ During the first three phases, the application employs console-based input and o
 -   ## Phase IV: Adding a GUI Frontend
     The final phase of the project, Phase IV, creates a **graphical user interface (GUI)** to replace the console interface. The GUI is created using **Swing classes** to include **JFrames**, **JPanels**, and other GUI components. This GUI uses a combination of **BorderLayout**, **GridBagLayout**, and **FlowLayout** to manage the GUI's layout design.
 
+[Back to Top](#table-of-contents)
+
 <br>
 
 # Application Architecture & Components
@@ -85,20 +87,30 @@ The application follows a modular design to provide clearly-defined separation o
 
 -   ## BankAcctAppGUI Class
     The **BankAcctAppGUI class** is responsible for implementing the **graphical user interface (GUI)** introduced in **Phase IV**. It utilizes **Java's Swing library**, incorporating **JFrame** for the main application window and **JPanel** for creating distinct sections within the interface. **FlowLayout**, **BorderLayout**, and **GridBagLayout** are implemented to position GUI components in an intuitive manner. The GUI leverages the **enhanced data validation engine** from the **DataEntry class** to ensure data integrity and security. This class facilitates user interaction with the application through a more visually appealing and user-friendly interface. More details and screenshots are provided in the [Functionality & Rationale](#functionality--rationale) and [Running Application Screenshots & Demo](#running-application-screenshots--demo) sections below.
+
+[Back to Top](#table-of-contents)
+
 <br>
 
 # Functionality & Rationale
+
+[Back to Top](#table-of-contents)
 
 <br>
 
 # Running Application Screenshots & Demo
 
+[Back to Top](#table-of-contents)
+
 <br>
 
 # Potential for Scalability & Future Enhancements
+
+[Back to Top](#table-of-contents)
 
 <br>
 
 # Project Issues & Lessons Learned
 
+[Back to Top](#table-of-contents)
 
