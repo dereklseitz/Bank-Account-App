@@ -7,7 +7,18 @@
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Scenario:](#scenario)
-- [Application Architecture \& Components](#application-architecture--components)
+  -  [Phase I: Creating the Initiial Classes](#phase-i-creating-the-initial-classes)
+  -  [Phase II: Adding an Abstract Superclass & Input Data Validation](#phase-ii-adding-an-abstract-superclass--input-data-validation)
+  -  [Phase III: Adding & Implementing Subclasses](#phase-iii-adding--implementing-subclasses)
+  -  [Phase IV: Creating the Application GUI](#phase-iv-creating-the-application-gui)
+- [Application Architecture & Components](#application-architecture--components)
+  -  [DataEntry Class](#dataentry-class)
+  -  [Customer Class](#customer-class)
+  -  [BankAcctApp Class](#bankacctapp-class)
+  -  [Account Abstract Superclass](#account-abstract-superclass)
+  -  [CheckingAccount & SavingsAccount Subclasses](#checkingaccount--savingsaccount-subclasses)
+  -  [AccountInterface Interface](#accountinterface-interface)
+  -  [BankAcctAppGUI Class](#bankacctappgui-class)
 - [Functionality \& Rationale](#functionality--rationale)
 - [Running Application Screenshots \& Demo](#running-application-screenshots--demo)
 - [Potential for Scalability \& Future Enhancements](#potential-for-scalability--future-enhancements)
@@ -64,6 +75,7 @@ The application follows a modular design to provide clearly-defined separation o
     -   Shared Rules: Logic is implemented to prevent overdrafting savings accounts and to ensure no interest is applied to account balances of $0 or less.
     
     These subclasses provide distinct account management features while adhering to shared principles of financial security and error handling.
+    
 -   ## AccountInterface Interface
     The **AccountInterface** serves three key purposes:
         **1. Enforce encapsulation** by defining a consistent interface for interacting with account objects.
